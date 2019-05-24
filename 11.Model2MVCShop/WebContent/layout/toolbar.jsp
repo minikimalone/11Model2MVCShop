@@ -173,13 +173,18 @@
 		
 		
 		
+
 		
-	 	$( "a:contains('WOMEN')" ).on("click" , function() {
+	 	$( "a:contains('MEN')" ).on("click" , function() {
 			
-	 		$(self.location).attr("href","/product/listProduct?menu=search");
+	 		$(self.location).attr("href","/product/listProduct?menu=search&category1=men");
 		});
 		
-		
+		$( "a:contains('WOMEN')" ).on("click" , function() {
+			
+	 		$(self.location).attr("href","/product/listProduct?menu=search&category1=women");
+		});
+	 	
 	 	$( "a:contains('구매내역조회')" ).on("click" , function() {
 			
 	 		$(self.location).attr("href","/purchase/listPurchase");

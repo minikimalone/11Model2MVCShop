@@ -139,7 +139,7 @@
 		}
 		 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-		 
+	
 		//==>"ID중복확인" Event 처리 및 연결
 		 $(function() {
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
@@ -151,7 +151,49 @@
 											"scrollbars=no,scrolling=no,menubar=no,resizable=no");
 			});
 		});	
-
+		
+		 $(function() {
+		
+		$("#userId").keyup(function() {
+			
+			var userId = $("#userId").val();
+			
+			if(userId == ""){
+				
+				$("#checkDuplication").text("id를 입력하세요.");
+				$("#checkDuplication").css("color" , "black");
+			}else {
+			
+			
+			$.ajax( 
+					{
+						url : "/user/json/checkDuplication/"+userId ,
+						method : "GET" ,
+						dataType : "json" ,
+						headers : {
+							"Accept" : "application/json",
+							"Content-Type" : "application/json"
+						},
+						success : function(JSONData) {
+							
+						 if(JSONData.result){
+							$("#checkDuplication").text("사용 가능한 id입니다.");
+							$("#checkDuplication").css("color" , "blue");
+						}else{
+							$("#checkDuplication").text("사용중인 id입니다.");
+							$("#checkDuplication").css("color" , "red");
+						}
+						}
+						
+				});
+			}
+				////////////////////////////////////////////////////////////////////////////////////////////
+			
+	});
+	
+			});	
+			
+		
 	</script>		
     
 </head>
@@ -177,15 +219,15 @@
 		  <div class="form-group">
 		    <label for="userId" class="col-sm-offset-1 col-sm-3 control-label">아 이 디</label>
 		    <div class="col-sm-4">
-		      <input type="text" class="form-control" id="userId" name="userId" placeholder="중복확인하세요"  readonly>
+		      <input type="text" class="form-control" id="userId" name="userId" >
 		       <span id="helpBlock" class="help-block">
-		      	<strong class="text-danger">입력전 중복확인 부터..</strong>
+	<div id=checkDuplication></div>
 		      </span>
 		    </div>
-		    <div class="col-sm-3">
+		   <!--  <div class="col-sm-3">
 		      <button type="button" class="btn btn-info">중복확인</button>
-		    </div>
-		  </div>
+		    </div>-->
+		  </div> 
 		  
 		  <div class="form-group">
 		    <label for="password" class="col-sm-offset-1 col-sm-3 control-label">비밀번호</label>

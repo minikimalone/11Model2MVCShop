@@ -121,6 +121,13 @@
 											<if test="menu == 'manage'">
 											t.prod_no=p.prod_no(+)
 											</if>
+											<if test="menu == 'search' and category1 == 'women'">
+											p.category1='women'
+											</if>
+											<if test="menu == 'search' and category1 == 'men'">
+											p.category1='men'
+											</if>
+											
 											<if test="searchCondition != null">												
 												<choose>	
 													<when test="searchCondition == 0 and searchKeyword !='' ">
@@ -176,9 +183,16 @@
 	  										FROM product p, transaction t
 						</if>
 										<where>
-											<if test="menu == 'manage'">
-											t.prod_no = p.prod_no(+)
+												<if test="menu == 'manage'">
+											t.prod_no=p.prod_no(+)
 											</if>
+											<if test="menu == 'search' and category1 == 'women'">
+											p.category1='women'
+											</if>
+											<if test="menu == 'search' and category1 == 'men'">
+											p.category1='men'
+											</if>
+											
 											<if test="searchCondition != null">												
 												<choose>	
 													<when test="searchCondition == 0 and searchKeyword !='' ">

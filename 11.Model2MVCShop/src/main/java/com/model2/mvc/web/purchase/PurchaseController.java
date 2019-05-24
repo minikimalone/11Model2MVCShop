@@ -1,6 +1,8 @@
 package com.model2.mvc.web.purchase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -78,6 +80,7 @@ public class PurchaseController {
 	
 		return "forward:/purchase/addPurchase.jsp";
 	}
+	
 	
 //	@RequestMapping( value="cancelPurchase", method=RequestMethod.POST )
 //	public String cancelPurchase(@ModelAttribute("purchase") Purchase purchase, @ModelAttribute("product") Product product, HttpSession session) throws Exception {

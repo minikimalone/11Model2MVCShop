@@ -83,7 +83,12 @@ $(function() {
 	
 </script>
 </head>
+<body>
 
+	<!-- ToolBar Start /////////////////////////////////////-->
+	<jsp:include page="/layout/toolbar.jsp" />
+   	<!-- ToolBar End /////////////////////////////////////-->
+	
 <body bgcolor="#ffffff" text="#000000">
 
 <form name="detailForm" >
@@ -120,8 +125,8 @@ $(function() {
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td width="105">
-						<input type="radio" name="category1" value="man" checked="checked">man
-<input type="radio" name="category1" value="woman">woman
+						<input type="radio" name="category1" value="men" checked="checked">men
+<input type="radio" name="category1" value="women">women
 					</td>
 				</tr>
 			</table>

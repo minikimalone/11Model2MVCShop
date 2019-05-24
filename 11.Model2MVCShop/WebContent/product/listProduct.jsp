@@ -93,7 +93,7 @@
     	 function fncGetList(currentPage) {
     	  
     	  $("#currentPage").val(currentPage)
-    	  $("form").attr("method" , "POST").attr("action" , "/product/listProduct?menu=${param.menu}").submit();
+    	  $("form").attr("method" , "POST").attr("action" , "/product/listProduct?menu=${param.menu}&category1=${param.category1}").submit();
     	 }
     	 $(function() {
 			
@@ -107,7 +107,7 @@
     	  $("#orderByHighPrice").val('0')
     	  $("#orderByLowPrice").val('1')
     	  $("#orderByProdNo").val('0')
-    	  $("form").attr("method" , "POST").attr("action" , "/product/listProduct?menu=${param.menu}").submit(); 
+    	  $("form").attr("method" , "POST").attr("action" , "/product/listProduct?menu=${param.menu}&category1=${param.category1}").submit(); 
     	  }
     	  
     	  function fncOrderByHighPrice(currentPage) {
@@ -115,7 +115,7 @@
     	   $("#orderByLowPrice").val('0')
     	   $("#orderByHighPrice").val('1')
     	   $("#orderByProdNo").val('0')
-    	   $("form").attr("method" , "POST").attr("action" , "/product/listProduct?menu=${param.menu}").submit(); 
+    	   $("form").attr("method" , "POST").attr("action" , "/product/listProduct?menu=${param.menu}&category1=${param.category1}").submit(); 
     	   }
     	  
     	  function fncOrderByProdNo(currentPage) {
@@ -123,7 +123,7 @@
     	   $("#orderByProdNo").val('1')
     	   $("#orderByLowPrice").val('0')
     	   $("#orderByHighPrice").val('0')
-    	   $("form").attr("method" , "POST").attr("action" , "/product/listProduct?menu=${param.menu}").submit(); 
+    	   $("form").attr("method" , "POST").attr("action" , "/product/listProduct?menu=${param.menu}&category1=${param.category1}").submit(); 
     	   }
     	 
     	 
@@ -169,15 +169,14 @@
     	     if( menu=='manage'){ 
     	     self.location ="/product/updateProductView?prodNo="+$(this).children("#prodNom").text().trim()+"&menu=manage";
     	     } else{
-    	    
-    	    
+
     	    self.location ="/product/getProduct?prodNo="+$(this).children("#prodNos").text().trim()+"&menu=search";
     	     }
     	      });
     	  
     	  }); 
-    	  
-    	  
+    		  
+ 
     	  
     	</script>
     	</head>
@@ -194,7 +193,7 @@
 <div class="container">
 	
 		<div class="page-header text-info">
-	       <h3>회원목록조회</h3>
+	       <h3> </h3>
 	    </div>
 	    
 	    <!-- table 위쪽 검색 Start /////////////////////////////////////-->
@@ -224,6 +223,26 @@
 				  
 				  <button type="button" class="btn btn-default">Search</button>
 				  <br><br><br>
+				   
+				  <div class="form-group">
+				  <input type="hidden" id="orderByProdNo" name="orderByProdNo" value="${! empty search.orderByProdNo?search.orderByProdNo : "1"}"/>
+
+      		<a href="javascript:fncOrderByProdNo('1');">상품명순</a><tr>
+   
+
+<input type="hidden" id="orderByLowPrice" name="orderByLowPrice" value="${! empty search.orderByLowPrice?search.orderByLowPrice : "0"}"/>
+
+      <a href="javascript:fncOrderByLowPrice('1');">낮은가격순</a>
+     
+  
+ <input type="hidden" id="orderByHighPrice" name="orderByHighPrice" value="${! empty search.orderByHighPrice?search.orderByHighPrice : "0"}"/>
+
+      <a href="javascript:fncOrderByHighPrice('1');">높은가격순</a>
+   
+				   </div>
+				  
+				  
+				  
 				  <!-- PageNavigation 선택 페이지 값을 보내는 부분 -->
 				  <input type="hidden" id="currentPage" name="currentPage" value=""/>
 				  

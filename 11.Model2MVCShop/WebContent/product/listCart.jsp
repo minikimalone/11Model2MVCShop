@@ -53,6 +53,14 @@
 				
 		});
 	
+		 
+		 $( "td.ct_btn01:contains('선택상품 구매하기')" ).on("click" , function() {
+				
+	
+					self.location = "/purchase/addPurchaseView2.jsp"
+			
+				});
+			 
 
 		 $("input[name=check_all]").on("click" , function() {
 				 var total = 0;
@@ -111,8 +119,9 @@
             <th align="center">No</th>
             <th align="left">상품번호</th>
             <th align="left">물품명</th>
-            <th align="left">price</th>
+          
             <th align="left">상세정보</th>
+            <th align="left">price</th>
 			<th align="left"><input type="checkbox" name="check_all" value=${totalPrice} checked="checked"></th>
           </tr>
         </thead>
@@ -127,8 +136,8 @@
 			  <td align="center">${ i }</td>
 			 <td align="left">${product.prodNo}</td>
 			  <td align="left">${product.prodName}</td>
-			  <td align="left">${product.price}</td>
 			  <td align="left">${product.prodDetail}</td>
+			  	  <td align="left">${product.price}</td>
 			  <td align="left"><input type="checkbox" name="input_check" checked="checked" value=${product.price}></td>
 				<td align="left"></th>
 </tr>

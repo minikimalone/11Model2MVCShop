@@ -99,7 +99,7 @@ public class ProductController {
 	
 	@RequestMapping( value="listCart" )
 
-	public String listCart( @ModelAttribute("search") Search search, HttpSession session, HttpServletRequest request) throws Exception{
+	public String listCart(@ModelAttribute("search") Search search, HttpSession session, HttpServletRequest request) throws Exception{
 		
 		System.out.println("/product/listCart : GET / POST");
 		
@@ -116,14 +116,6 @@ public class ProductController {
 
 		session.getAttribute("cart");
 		
-		// Business logic 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙
-		//Map<String , Object> map=productService.getProductList(search);
-		
-		//Page resultPage = new Page( search.getCurrentPage(), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
-		
-		
-		
-	
 		return "forward:/product/listCart.jsp";
 	}
 	
@@ -151,7 +143,8 @@ public class ProductController {
 		
 		
 		//String path="C:\\workspace\\10.Model2MVCShop(Ajax)\\WebContent\\images\\uploadFiles";
-		String path="C:\\workspace\\11.Model2MVCShop\\WebContent\\images\\uploadFiles";
+		String path="C:\\Users\\USER\\git\\11Model2MVCShop\\11.Model2MVCShop\\WebContent\\images\\uploadFiles";
+		//String path="C:\\workspace\\11.Model2MVCShop\\WebContent\\images\\uploadFiles";
 		//String path="//Users//minikim//git//10Model2MVCShop-Ajax-//10.Model2MVCShop\\(Ajax\\)/WebContent//images//uploadFiles";
 		String fileName=file.getOriginalFilename();
 		product.setFileName(fileName);
