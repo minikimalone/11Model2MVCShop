@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//WebContent/javascript/calendar.js=MS949
+encoding//WebContent/main.jsp=UTF-8
+encoding//WebContent/productMain.jsp=UTF-8
+encoding//WebContent/purchase/addPurchase2.jsp=UTF-8
+encoding//WebContent/user/addUserView.jsp=EUC-KR
+encoding//src/main/java/com/model2/mvc/web/product/ProductController.java=UTF-8
+encoding//src/main/java/com/model2/mvc/web/purchase/PurchaseController.java=UTF-8
